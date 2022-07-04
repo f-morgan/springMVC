@@ -40,6 +40,9 @@ public class PostController {
 
     @PostMapping
     public Post save(@RequestBody Post post) {
+        if (post.getId() != 0) {
+            getById(post.getId());
+        }
         return service.save(post);
     }
 
